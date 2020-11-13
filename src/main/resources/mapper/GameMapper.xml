@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fh.mapper.TUserMapper">
+
+  <insert id="batchAddGame" parameterType="list">
+    insert into t_game (name,onlineTime,offlineTime,userName,idNumber) values
+    <foreach collection="list" item="game" separator=",">
+      (#{name},#{onlineTime},#{offlineTime},#{userName},#{idNumber})
+    </foreach>
+
+  </insert>
+</mapper>
